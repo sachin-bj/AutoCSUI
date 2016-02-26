@@ -474,8 +474,10 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
-                    <ul class="list-group" id="messageList">
-                    </ul>
+                    <table border="1" style="width:150%" id="messageList">
+
+                    </table>
+
                     <!--<div class="panel panel-default">-->
                         <!--<div class="panel-heading">-->
                             <!--<i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example-->
@@ -940,14 +942,15 @@
     <script src="../js/index.js"></script>
     <script type="text/template" id="messageTmpl">
 
-            <table border="1" style="width:150%">
-                <tr>
-                    <td style="width: 50px;" >@@message@@</td>
-                    <td style="width: 50px;">@@pageId@@</td>
-                    <td style="width: 50px;">@@entityId@@</td>
-                    <td style="width: 50px;">@@entityTime@@</td>
+
+                <tr data-entityId="@@entityId@@">
+                    <td  >@@orderId@@</td>
+                    <td >@@trackingId@@</td>
+                    <td >@@entityMessage@@</td>
+                    <td ><input type="text"style="width: 100%;"></td>
+                    <td style="text-align: center;"><button type="button" class=" submit btn btn-xs btn-success">Success</button></td>
                 </tr>
-            </table>
+
 
     </ul>
 </script>

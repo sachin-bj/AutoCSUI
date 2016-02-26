@@ -63,14 +63,19 @@ $(document).ready(function(){
                 }
             });
         });
+        $("body").off("click.submit").on("click.submit",".submit", function(e){
+            console.log(e);
+        });
 
     }
     function setData1(res){
         var newHtml = "";
         $("#messageList").html("")
+        var htmlHeader = "<tr> <th >Order Id</th> <th >Tracking Id</th> <th >Message</th> <th >Reply</th> <th >Save</th></tr>";
+        $("#messageList").append($(htmlHeader));
         $.each(res, function(i,v){
             var html = $("#messageTmpl").html();
-            newHtml = newHtml + html.replace("@@message@@", v.entityMessage).replace("@@pageId@@", v.pageId).replace("@@entityId@@", v.entityId).replace("@@entityTime@@", v.entityTime);
+            newHtml = newHtml + html.replace("@@orderId@@", v.orderId).replace("@@trackingId@@", v.trackingId).replace("@@entityMessage@@", v.entityMessage).replace("@@entityId@@", v.entityId);
             console.log(v.entityMessage);
         });
         $("#messageList").append($(newHtml));
